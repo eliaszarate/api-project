@@ -1,0 +1,6 @@
+.env
+.vscode
+/framework/settings.py
+venv
+requirements.txt
+setup.sh

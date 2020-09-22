@@ -1,0 +1,9 @@
+https://www.monster.com/jobs/search/?where=95111
+
+https://www.monster.com/jobs/search/?where=95111
+
+This is the format used to search for a job. 
+https://www.monster.com/jobs/search/?q=Mechnical
+
+Here is the combination of both
+https://www.monster.com/jobs/search/?q=Mechnical&where=95111
