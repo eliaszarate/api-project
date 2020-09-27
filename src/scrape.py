@@ -36,7 +36,6 @@ page = requests.get(URL_monster)
 
 #creates an object named beautiful soup to parse html input
 soup = BeautifulSoup(page.content, 'html.parser')
-print(page.content)
 
 results = soup.find(id='ResultsContainer')
 
@@ -59,5 +58,5 @@ python_jobs = results.find_all('h2',string=lambda text: 'electric' in text.lower
 for p_job in python_jobs:
     link = p_job.find('a')['href']
     print(p_job.text.strip())
-    print(f"Apply here: {link}\n")
+    print(f"Please visit here to apply: {link}\n")
 
