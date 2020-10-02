@@ -12,16 +12,25 @@ import requests
 import logging as log #Reminder: Put this is the API
 from bs4 import BeautifulSoup
 
-destinationFile = "/home/ezarate/myjobs.txt"
-linkdestinationfile = "/home/ezarate/links.txt"
+destinationFile = "./myjobs.txt"
+linkdestinationfile = "./links.txt"
 
-#
+
 # getUserName = input("Enter you name ")
 
 
 # Get users job search
 getJobPosition  = input("What position are you looking for? \n")
-#getJobRole = input("What Role are you looking for?") # To implement
+
+# This will be fed into the HTML parser
+sep = '-'
+rest = getJobPosition.split(sep, 1)[0]
+print(rest.lower())
+rest = getJobPosition.lower()
+print(getJobPosition)
+
+
+# Get user Zip search
 getUserZip = input ("Enter your 5 digit zip code \n")
 
 while (len(getUserZip) != 5): 
@@ -56,7 +65,7 @@ numjobs = 0
 
 for p_job in searched_jobs:
     link = p_job.find('a')['href']
-    print((p_job.text.strip()))
+    #print((p_job.text.strip()))
     f.write(str(p_job.text.strip()) + "\n")
     #f.write(str(link) + "\n")
     numjobs += 1
@@ -68,7 +77,7 @@ for p_job in searched_jobs:
 # Results from myjob.link
 
 print("Finished! Found " + str(numjobs) + " jobs for you. \n")
-print("Please see " + linkdestinationfile + " to view your job positions")
+#print("Please see " + linkdestinationfile + " to view your job positions")
 f.close()
 
 f = open(linkdestinationfile,"w")
@@ -78,6 +87,10 @@ for p_job in searched_jobs:
 
     #print(f"Please visit here to apply: {link}\n")
 f.close()
-print("Please see " + linkdestinationfile + " to view url links")
+
+cwd = os.getcwd()
+#print(cwd)
+
+print("Please see " + cwd + " to view url links and job positions")
 
 
